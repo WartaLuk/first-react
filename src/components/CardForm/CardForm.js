@@ -4,15 +4,14 @@ import Button from '../Button/Button';
 import TextInput from '../TextInput/TextInput';
 import Card from '../Card/Card';
 
-const CardForm = (props) => {
+const CardForm = ({action, columnId }) => {
   const [title, setTitle] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    props.addCard({ title: title }, props.columnId);
+    action({title: title}, columnId);
     setTitle('');
-  };
+};
 
   return (
     <form onSubmit={handleSubmit} className={styles.CardForm}>
