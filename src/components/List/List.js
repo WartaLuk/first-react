@@ -19,7 +19,6 @@ const List = () => {
         {columns.map((column) => (
           <Column key={column.id} {...column} />
         ))}
-        console.log(columns);
       </section>
       <ColumnForm />
     </div>
