@@ -1,8 +1,8 @@
 import styles from './CardForm.modules.scss';
-import { useState } from 'react';
 import Button from '../Button/Button';
 import TextInput from '../TextInput/TextInput';
-import Card from '../Card/Card';
+
+import { useState } from 'react';
 
 const CardForm = ({action, columnId }) => {
   const [title, setTitle] = useState('');
