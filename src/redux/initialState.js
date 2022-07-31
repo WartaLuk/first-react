@@ -24,8 +24,8 @@ const initialState = {
       { id: 4, columnId: 2, title: 'Star Wars' },
       { id: 5, columnId: 3, title: 'Divinity Orginal Sin 2' },
       { id: 6, columnId: 3, title: 'Star Wars Fallen Order' }
-    ]
-  
+    ],
+    searchString: '',
   };
   
   export default initialState; 

@@ -3,6 +3,8 @@ import Button from '../Button/Button';
 import TextInput from '../TextInput/TextInput';
 import {useDispatch} from 'react-redux';
 import {useState} from 'react';
+import shortid from 'shortid';
+import { produceWithPatches } from 'immer';
 
 const CardForm = ({action, columnId }) => {
   const [title, setTitle] = useState('');
@@ -10,7 +12,8 @@ const CardForm = ({action, columnId }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch({ type: 'ADD_CARD', payload: { title: title, columnId } });
+    dispatch({ type: 'ADD_CARD', action: { title: title, columnId: columnId, id: shortid() } });
+    action({title: title}, columnId);
     setTitle('');
 };
 
