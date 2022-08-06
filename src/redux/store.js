@@ -15,11 +15,11 @@ console.log(getAllColumns);
 function reducer(state, action) {
   switch (action.type) {
     case 'ADD_COLUMN':
-      return { ...state, columns: [...state.columns, { ...action.newColumn }] };
+      return { ...state, columns: [...state.columns, { ...action.payload }] };
     case 'ADD_CARD':
-      return { ...state, cards: [...state.cards, { ...action.newCard }] };
+      return { ...state, cards: [...state.cards, { ...action.payload }] };
     case 'UPDATE_SEARCHSTRING':
-      return { ...state, searchString: action.newSearch };
+      return { ...state, searchString: action.payload };
       default:
         return state;
       }

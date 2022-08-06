@@ -6,14 +6,14 @@ import {useState} from 'react';
 import shortid from 'shortid';
 
 
-const CardForm = ({action, columnId }) => {
+const CardForm = ({payload, columnId }) => {
   const [title, setTitle] = useState('');
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch({ type: 'ADD_CARD', action: { title: title, columnId: columnId, id: shortid() } });
-    action({title: title}, columnId);
+    dispatch({ type: 'ADD_CARD', payload: { title: title, columnId: columnId, id: shortid() } });
+    payload({title: title}, columnId);
     setTitle('');
 };
 
