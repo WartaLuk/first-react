@@ -1,14 +1,24 @@
 import PageTitle from "../PageTitle/PageTitle";
-const today = new Date();
-const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+import styles from './Favorite.module.scss';
+import { getFavoriteCards} from '../../redux/store';
+import { useSelector } from 'react-redux';
+import Card from '../Card/Card';
+
 const Favorite = () => {
+
+    const favoriteCards = useSelector(getFavoriteCards);
+  
     return (
-        <div>
-            <PageTitle>
-                Favorite
-            </PageTitle>
-            {time}
-        </div>
-    );
+        <>
+      <PageTitle>Favorite</PageTitle>
+      <article className={styles.column}>
+        <ul className={styles.cards}>
+          {favoriteCards.map((card) => (
+            <Card key={card.id} title={card.title} id={card.id} />
+          ))}
+        </ul>
+      </article>
+  </>
+  );
 };
 export default Favorite;
