@@ -2,16 +2,17 @@ import styles from './List.module.scss';
 import Column from '../Column/Column';
 import { useSelector } from 'react-redux';
 import ColumnForm from '../ColumnForm/ColumnForm';
-import { getAllColumns } from '../../redux/store';
+import { getAllColumns, getAllColumnsByList } from '../../redux/store';
 import { getListById, getColumnsByList } from '../../redux/store';
 import { useParams } from 'react-router';
 import SearchForm from '../SearchForm/SearchForm';
 import { Navigate } from 'react-router-dom';
 
 const List = () => {
-  const columns = useSelector(state => getAllColumns(state, listId));
-  const listData = useSelector(state => getListById(state, listId));
   const {listId} = useParams();
+  const columns = useSelector(state => getAllColumnsByList
+    (state, listId));
+  const listData = useSelector(state => getListById(state, listId));
 
   if (!listData) return <Navigate to="/" />
   return (

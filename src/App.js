@@ -21,13 +21,6 @@ const App = () => {
             <Route path="*" element={<Page404 />} />
             <Route path="/list/:listId" element={<List />} />
           </Routes>
-           {/* Czy ma jakieś znaczenie co wybierzemy? */}
-          {/* <Switch>
-            <Route path="/" component={Home} />
-            <Route path="/about" component={About} />
-            <Route path="/favorite" component={Favorite} />
-            <Route path="*" component={NotFound} />
-          </Switch> */}
         </>
       </Container>
     </main>
