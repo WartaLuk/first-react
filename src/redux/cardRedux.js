@@ -9,9 +9,9 @@ const cardsReducer = (statePart = [], action) => {
       case 'ADD_CARD':
         return [...statePart, { ...action.payload, id: shortid() }];
       case 'TOGGLE_CARD_FAVORITE':
-        return statePart.filter(card => card.id !== action.payload)
+        return statePart.map((card) => (card.id === action.payload ? { ...card, isFavorite: !card.isFavorite } : card));
       case 'REMOVE_CARD':
-        
+        return statePart.filter(card => card.id !== action.payload)
       default:
         return statePart;
     }
