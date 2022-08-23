@@ -2,6 +2,9 @@ import PageTitle from "../PageTitle/PageTitle";
 import styles from './Favorite.module.scss';
 import { getFavoriteCards } from "../../redux/cardRedux";
 import { useSelector } from 'react-redux';
+import Card from "../Card/Card";
+
+
 const Favorite = () => {
 
     const favoriteCards = useSelector(getFavoriteCards);
@@ -12,7 +15,7 @@ const Favorite = () => {
       <article className={styles.column}>
         <ul className={styles.cards}>
           {favoriteCards.map((card) => (
-            <card key={card.id} title={card.title} id={card.id} />
+            <Card key={card.id} title={card.title} id={card.id} />
           ))}
         </ul>
       </article>
